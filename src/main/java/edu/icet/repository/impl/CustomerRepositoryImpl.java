@@ -15,20 +15,26 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public boolean addCustomer(Customer customer) {
-        String sql = "INSERT INTO customer VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+        String sql = """
+        INSERT INTO customer (CustID, CustTitle, CustName, DOB, salary, CustAddress, City, Province, PostalCode)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """;
 
         return jdbcTemplate.update(sql,
-                customer.getId(),
-                customer.getTitle(),
-                customer.getName(),
-                customer.getDOB(),
-                customer.getSalary(),
-                customer.getAddress(),
-                customer.getCity(),
-                customer.getProvince(),
-                customer.getPostalCode()
+                customer.getId(),          // CustID
+                customer.getTitle(),       // CustTitle
+                customer.getName(),        // CustName
+                customer.getDOB(),         // DOB
+                customer.getSalary(),      // salary
+                customer.getAddress(),     // CustAddress
+                customer.getCity(),        // City
+                customer.getProvince(),    // Province
+                customer.getPostalCode()   // PostalCode
         ) > 0;
     }
+
+
 
     @Override
     public boolean updateCustomer(Customer customer) {
