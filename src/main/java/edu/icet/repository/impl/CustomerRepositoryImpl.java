@@ -22,15 +22,15 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     """;
 
         return jdbcTemplate.update(sql,
-                customer.getId(),          // CustID
-                customer.getTitle(),       // CustTitle
-                customer.getName(),        // CustName
-                customer.getDOB(),         // DOB
-                customer.getSalary(),      // salary
-                customer.getAddress(),     // CustAddress
-                customer.getCity(),        // City
-                customer.getProvince(),    // Province
-                customer.getPostalCode()   // PostalCode
+                customer.getId(),
+                customer.getTitle(),
+                customer.getName(),
+                customer.getDOB(),
+                customer.getSalary(),
+                customer.getAddress(),
+                customer.getCity(),
+                customer.getProvince(),
+                customer.getPostalCode()
         ) > 0;
     }
 
