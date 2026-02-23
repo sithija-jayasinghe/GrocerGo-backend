@@ -54,13 +54,13 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public boolean deleteCustomer(String id) {
-        String sql = "DELETE FROM customer WHERE id=?";
+        String sql = "DELETE FROM customer WHERE CustID=?";
         return jdbcTemplate.update(sql, id) > 0;
     }
 
     @Override
     public Customer getCustomerById(String id) {
-        String sql = "SELECT * FROM customer WHERE id=?";
+        String sql = "SELECT * FROM customer WHERE CustID=?";
         return jdbcTemplate.queryForObject(sql, new Object[]{id}, (rs, rowNum) -> {
             Customer customer = new Customer();
             customer.setId(rs.getString(1));
